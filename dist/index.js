@@ -8889,11 +8889,12 @@ const main = async () => {
         var script = '';
         var workingDirectory = '';
         var failOnStderr = true;
+		var tests ='';
         if(configtype == 'simple'){
             const projectdir = core.getInput('projectdir', true);
             var projectname = core.getInput('projectname', true);
             const environment = core.getInput('environment', true);
-            const tests = core.getInput('tests', true);
+            tests = core.getInput('tests', true);
             const junitDir = core.getInput('junitDir', false);
     
             tl.setResourcePath(path.join(__dirname, 'task.json'));
