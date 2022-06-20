@@ -3,21 +3,27 @@ name: API Action
 on:
     workflow_dispatch:
         inputs:
+            selectedConfigType:
+                description: 'Configuration Type'
+                required: true
             productpath:
                 description: 'Product Path'
+                required: true
+            projectdir:
+                description: 'Project Directory'
+                required: true
+            projectname:
+                description: 'Project Name'
+                required: true
+            environment:
+                description: 'Environment'
+                required: true
+            tests:
+                description: 'Test(s) to run'
+                required: true
+            junitDir:
+                description: 'JunitDir'
                 required: false
-            imshared:
-                description: 'IMShared Location'
-                required: false
-            workspace:
-                description: 'Workspace'
-                required: true
-            project:
-                description: 'Project'
-                required: true
-            suite:
-                description: 'Test Suite Name'
-                required: true
 
 jobs:
 
@@ -28,8 +34,10 @@ jobs:
          - name: Execute Test
            uses: SonaHJ/APIAction@main
            with:
+            selectedConfigType: '${{ github.event.inputs.selectedConfigType }}'
             productpath: '${{ github.event.inputs.productpath }}'
-            imshared: '${{ github.event.inputs.imshared }}'
-            workspace: '${{ github.event.inputs.workspace }}'
-            project: '${{ github.event.inputs.project }}'
-            suite: '${{ github.event.inputs.suite }}'
+            projectdir: '${{ github.event.inputs.projectdir }}'
+            projectname: '${{ github.event.inputs.projectname }}'
+            environment: '${{ github.event.inputs.environment }}'
+            tests: '${{ github.event.inputs.tests }}'
+            junitDir: '${{ github.event.inputs.junitDir }}'
