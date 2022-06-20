@@ -38,7 +38,7 @@ const main = async () => {
                         + ' -run ' + '"' + tests + '"'
                         + ' -environment ' + environment;
             
-            if(junitDir != null){
+            if(!junitDir){
               script = script.concat(' -junitDir '+'"'+ junitDir +'"');
             }
         } else{
