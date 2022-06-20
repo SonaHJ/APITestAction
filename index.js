@@ -51,7 +51,7 @@ const main = async () => {
 
 
         let tempDir = os.tmpdir();
-        let filePath = path.join(tempDir, suite + '.ps1');
+        let filePath = path.join(tempDir, tests + '.ps1');
         await fs.writeFileSync(
             filePath,
             script,
