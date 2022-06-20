@@ -26,9 +26,7 @@ const main = async () => {
             const environment = core.getInput('environment', true);
             tests = core.getInput('tests', true);
             const junitDir = core.getInput('junitDir', false);
-    
-            tl.setResourcePath(path.join(__dirname, 'task.json'));
-             
+                 
             if(!projectname.includes('.ghp')){
                 projectname = projectname+'.ghp';
             }
