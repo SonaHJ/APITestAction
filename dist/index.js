@@ -8908,13 +8908,7 @@ const main = async () => {
                         + ' -run ' + '"' + tests + '"'
                         + ' -environment ' + environment;
             
-			console.log('=========='+junitDir);
-            if(!junitDir){
-				console.log('Null check1');
-              script = script.concat(' -junitDir '+'"'+ junitDir +'"');
-            }
 			if(junitDir===null){
-				console.log('Null check2');
               script = script.concat(' -junitDir '+'"'+ junitDir +'"');
             }
         } else{
