@@ -1,5 +1,5 @@
-name: '_prop_task_ui_productName_ Action'
-description: '_prop_task_ui_productName_ Action to execute WebUI test from GitHub Action.'
+name: 'API Action'
+description: 'API Action to execute WebUI test from GitHub Action.'
 inputs:
   selectedConfigType:
     description: 'The type of the test to execute.'
@@ -35,4 +35,4 @@ inputs:
 
 runs:
   using: 'node16'
-  main: 'index.js'
+  main: 'dist/index.js'
