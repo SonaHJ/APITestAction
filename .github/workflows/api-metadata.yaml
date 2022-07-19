@@ -1,4 +1,4 @@
-name: API Action
+name: HCL OneTest API
 
 on:
     workflow_dispatch:
@@ -29,9 +29,9 @@ jobs:
 
     WebUI-Action:
         runs-on: self-hosted
-        name: Execute API Test
+        name: HCL OneTest API
         steps:
-         - name: Execute Test
+         - name: HCL OneTest API
            uses: SonaHJ/APIAction@main
            with:
             selectedConfigType: '${{ github.event.inputs.selectedConfigType }}'
