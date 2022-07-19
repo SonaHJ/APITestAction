@@ -1,4 +1,4 @@
-## API Action
+## HCL OneTest API
 This action enables you to run HCL OneTest API tests.
 
 ## Pre requisites
@@ -10,7 +10,7 @@ This action enables you to run HCL OneTest API tests.
 ## Example usage
 
 ```yaml
-name: UI Action
+name: HCL OneTest API
 
 on: workflow_dispatch
 
@@ -18,9 +18,9 @@ jobs:
 
     RPT-Action:
         runs-on: self-hosted
-        name: Traditional UI Test
+        name: HCL OneTest API
         steps:
-         - name: UI Action
+         - name: HCL OneTest API
            uses: SonaHJ/UIAction@UI_Release
           with:
             projectdir: C:\Program Files\HCL\HCLProducts\API
@@ -43,7 +43,7 @@ To configure agent:
 
 ### `projectdir`
 
-Fully qualified path to the HCL OneTest UI project directory.
+Fully qualified path to the HCL OneTest API project directory.
 
 ### `projectname`
 
