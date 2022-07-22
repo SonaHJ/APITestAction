@@ -12,22 +12,47 @@ This action enables you to run HCL OneTest API tests.
 ```yaml
 name: HCL OneTest API
 
-on: workflow_dispatch
+on:
+    workflow_dispatch:
+        inputs:
+            selectedConfigType:
+                description: 'Configuration Type'
+                required: true
+            productpath:
+                description: 'Product Path'
+                required: true
+            projectdir:
+                description: 'Project Directory'
+                required: true
+            projectname:
+                description: 'Project Name'
+                required: true
+            environment:
+                description: 'Environment'
+                required: true
+            tests:
+                description: 'Test(s) to run'
+                required: true
+            junitDir:
+                description: 'JunitDir'
+                required: false
 
 jobs:
 
-    RPT-Action:
+    WebUI-Action:
         runs-on: self-hosted
         name: HCL OneTest API
         steps:
          - name: HCL OneTest API
-           uses: SonaHJ/UIAction@UI_Release
-          with:
-            projectdir: C:\Program Files\HCL\HCLProducts\API
-            selectedConfigType: simple
-            projectname: TestAPI
-            environment: COMP-1604-1
-            tests: test
+           uses: SonaHJ/APIAction@main
+           with:
+            selectedConfigType: '${{ github.event.inputs.selectedConfigType }}'
+            productpath: '${{ github.event.inputs.productpath }}'
+            projectdir: '${{ github.event.inputs.projectdir }}'
+            projectname: '${{ github.event.inputs.projectname }}'
+            environment: '${{ github.event.inputs.environment }}'
+            tests: '${{ github.event.inputs.tests }}'
+            junitDir: '${{ github.event.inputs.junitDir }}'
 ```
 7. Replace the example input values with your details.
 8. Push it into the main branch
