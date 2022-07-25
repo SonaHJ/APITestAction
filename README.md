@@ -4,9 +4,9 @@ This action enables you to run HCL OneTest API tests.
 ## Pre requisites
 
 1. Create a github repository
-2. Create a folder named ".github" in the root of the repository
-3. Create a folder named "workflows" inside the ".github" folder.
-5. Create a .yml file with any name , inside the "workflow" folder and you need to code as following example in that yml file
+2. Create a folder named ".github/workflows" in the root of the repository
+3. Create a .yml file with any name, inside the ".github/workflows" folder and you need to code as detailed below in that yml file
+
 ## Example usage
 
 ```yaml
@@ -15,7 +15,7 @@ name: HCL OneTest API
 on:
     workflow_dispatch:
         inputs:
-            selectedConfigType:
+            configurationType:
                 description: 'Configuration Type'
                 required: true
             productpath:
@@ -39,7 +39,7 @@ on:
 
 jobs:
 
-    WebUI-Action:
+    API-Action:
         runs-on: self-hosted
         name: HCL OneTest API
         steps:
@@ -54,21 +54,24 @@ jobs:
             tests: '${{ github.event.inputs.tests }}'
             junitDir: '${{ github.event.inputs.junitDir }}'
 ```
-7. Replace the example input values with your details.
-8. Push it into the main branch
-9. Go to the Actions section in the repository and select the workflow.
-10. Click the Run workflow dropdown and the list of input boxes get displayed.
+4. Push the new yml file into the main branch
+5. The you will have to configure agent:
+    1. Go to settings (Repo).
+    2. Select action -> runner.
+    3. Click Create self-hosted runner, follow the download and configure instructions.
 
-To configure agent:
-1. Go to settings (Repo).
-2. Select action -> runner.
-3. Click Create self-hosted runner, follow the download and configure instruction
+6. Go to the Actions section in the repository and select the workflow.
+7. Click the Run workflow dropdown and the list of input boxes get displayed.
 
 ## Inputs
 
+### `configurationType`
+
+**Required** Type of the test to execute
+
 ### `projectdir`
 
-Fully qualified path to the HCL OneTest API project directory.
+**Required** Fully qualified path to the HCL OneTest API project directory.
 
 ### `projectname`
 
@@ -80,7 +83,7 @@ Fully qualified path to the HCL OneTest API project directory.
 
 ### `tests`
 
-Semicolon separated list of tests/suites to run.
+**Required** Semicolon separated list of tests/suites to run.
 
 ### `junitDir`
-Specify the folder to export the JUnit reports to.
+**Optional** Specify the folder to export the JUnit reports to.
