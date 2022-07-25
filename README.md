@@ -15,7 +15,7 @@ name: HCL OneTest API
 on:
     workflow_dispatch:
         inputs:
-            configurationType:
+            configType:
                 description: 'Configuration Type'
                 required: true
             productPath:
@@ -39,20 +39,21 @@ on:
 
 jobs:
 
-    API-Action:
+    WebUI-Action:
         runs-on: self-hosted
         name: HCL OneTest API
         steps:
          - name: HCL OneTest API
            uses: SonaHJ/APIAction@main
            with:
-            configurationType: '${{ github.event.inputs.selectedConfigType }}'
+            configType: '${{ github.event.inputs.configType }}'
             productPath: '${{ github.event.inputs.productPath }}'
             projectDir: '${{ github.event.inputs.projectDir }}'
             projectName: '${{ github.event.inputs.projectName }}'
             environment: '${{ github.event.inputs.environment }}'
             tests: '${{ github.event.inputs.tests }}'
             junitDir: '${{ github.event.inputs.junitDir }}'
+
 ```
 4. Push the new yml file into the main branch
 5. The you will have to configure agent:
@@ -65,9 +66,13 @@ jobs:
 
 ## Inputs
 
-### `configurationType`
+### `configType`
 
 **Required** Type of the test to execute
+
+### `productPath`
+
+**Required** The fully qualified path to the HCL OneTest API application. This path must exist on the agent.
 
 ### `projectDir`
 

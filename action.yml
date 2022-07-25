@@ -1,19 +1,19 @@
 name: 'HCL OneTest API'
 description: 'HCL OneTest API Action to execute WebUI test from GitHub Action.'
 inputs:
-  selectedConfigType:
+  configType:
     description: 'The type of the test to execute.'
     required: true
 
-  productpath:
+  productPath:
     description: 'Path to Product Installation directory'
     required: true
 
-  projectdir:
+  projectDir:
     description: 'The fully qualified path to the HCL OneTest API project directory.'
     required: false
 
-  projectname:
+  projectName:
     description: 'The name of the API test project.'
     required: false
 

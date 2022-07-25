@@ -12,8 +12,8 @@ const main = async () => {
         */
         //API settings
 
-        const configtype = core.getInput('selectedConfigType', { required: false });
-        const productpath = core.getInput('productpath', true);
+        const configtype = core.getInput('configType', { required: false });
+        const productpath = core.getInput('productPath', true);
 
         //Script parameters
         var script = '';
@@ -21,8 +21,8 @@ const main = async () => {
         var failOnStderr = true;
 		var tests ='';
         if(configtype == 'simple'){
-            const projectdir = core.getInput('projectdir', true);
-            var projectname = core.getInput('projectname', true);
+            const projectdir = core.getInput('projectDir', true);
+            var projectname = core.getInput('projectName', true);
             const environment = core.getInput('environment', true);
             tests = core.getInput('tests', true);
             const junitDir = core.getInput('junitDir', false);
