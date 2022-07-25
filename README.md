@@ -18,13 +18,13 @@ on:
             configurationType:
                 description: 'Configuration Type'
                 required: true
-            productpath:
+            productPath:
                 description: 'Product Path'
                 required: true
-            projectdir:
+            projectDir:
                 description: 'Project Directory'
                 required: true
-            projectname:
+            projectName:
                 description: 'Project Name'
                 required: true
             environment:
@@ -46,10 +46,10 @@ jobs:
          - name: HCL OneTest API
            uses: SonaHJ/APIAction@main
            with:
-            selectedConfigType: '${{ github.event.inputs.selectedConfigType }}'
-            productpath: '${{ github.event.inputs.productpath }}'
-            projectdir: '${{ github.event.inputs.projectdir }}'
-            projectname: '${{ github.event.inputs.projectname }}'
+            configurationType: '${{ github.event.inputs.selectedConfigType }}'
+            productPath: '${{ github.event.inputs.productPath }}'
+            projectDir: '${{ github.event.inputs.projectDir }}'
+            projectName: '${{ github.event.inputs.projectName }}'
             environment: '${{ github.event.inputs.environment }}'
             tests: '${{ github.event.inputs.tests }}'
             junitDir: '${{ github.event.inputs.junitDir }}'
@@ -69,11 +69,11 @@ jobs:
 
 **Required** Type of the test to execute
 
-### `projectdir`
+### `projectDir`
 
 **Required** Fully qualified path to the HCL OneTest API project directory.
 
-### `projectname`
+### `projectName`
 
 **Required** The name of the API test project.
 
